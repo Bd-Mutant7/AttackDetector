@@ -1,0 +1,22 @@
+# AttackDetector .gitignore
+# PATH .gitignore
+
+# Environments
+venv/
+env/
+
+# Python Cache
+__pycache__/
+*.pyc
+
+# Logs and Data
+logs/
+*.pcap
+
+# OS generated files
+.DS_Store
+.vscode/
+.devtool/
+
+# Project Notes
+v1.0.md

@@ -1,0 +1,12 @@
+# AttackDetector .dockerignore
+# PATH .dockerignore
+
+venv/
+__pycache__/
+logs/
+*.pcap
+.git/
+.gitignore
+.vscode/
+.devtool/
+v1.0.md

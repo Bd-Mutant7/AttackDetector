@@ -1,0 +1,18 @@
+# AttackDetector General Configuration
+# PATH config/settings.yaml
+
+network:
+  default_interface: "eth0" # Default network interface for live listening (e.g., eth0, Wi-Fi)
+
+engine:
+  threads: 4 # Multi-threading processor power (Affects the packet processing speed per second)
+
+logging:
+  level: "INFO" # DEBUG, INFO, WARNING, ERROR, CRITICAL
+  file: "logs/detector.log" # default
+
+notifications:
+  discord_webhook: "" # If you want Discord notifications, you can paste the Webhook URL here. (optional)
+
+api:
+  virustotal_key: "" # Malicious IP analysis (optional)

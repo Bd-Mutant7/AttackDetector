@@ -1,0 +1,52 @@
+# Author cybalp
+# PATH rules/custom.rules
+# Description 5 ayrı alan, 5 kural tanımladım. Kullanıcıların yazabileceği kural dosyası. Tehdit imzaları ve kurallar buraya yazılacak.
+
+rules:
+
+# 1. Web Security: SQL Injection
+  - id: 1001
+    name: "SQL Injection Detected"
+    protocol: "TCP"
+    ports: [80, 443]
+    payload_match: ["UNION SELECT", "OR 1=1", "DROP TABLE"]
+    action: "alert"
+    severity: "critical"
+
+# 2. Network Security: SSH Brute Force
+  - id: 1002
+    name: "SSH Brute Force Attempt"
+    protocol: "TCP"
+    ports: [22]
+    threshold:
+      count: 10
+      seconds: 60
+    action: "block"
+    severity: "high"
+
+# 3. Client Based: Cross-Site Scripting -> XSS
+  - id: 1003
+    name: "XSS Payload Detected"
+    protocol: "TCP"
+    ports: [80, 443]
+    payload_match: ["<script>", "javascript:alert", "onerror="]
+    action: "alert"
+    severity: "medium"
+
+# 4. Server Based: Directory/Path Traversal
+  - id: 1004
+    name: "Path Traversal Attempt"
+    protocol: "TCP"
+    ports: [80, 443]
+    payload_match: ["../../../", "/etc/passwd", "C:\\Windows\\System32"]
+    action: "alert"
+    severity: "high"
+
+# 5. System Security: Command Injection
+  - id: 1005
+    name: "Suspicious OS Command Execution"
+    protocol: "TCP"
+    ports: [80, 443, 8080]
+    payload_match: ["wget http", "curl -O", "bash -i"]
+    action: "alert"
+    severity: "critical"
