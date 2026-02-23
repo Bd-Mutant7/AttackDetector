@@ -1,6 +1,6 @@
 # Author cybalp
 # PATH rules/custom.rules
-# Description 5 ayrı alan, 5 kural tanımladım. Kullanıcıların yazabileceği kural dosyası. Tehdit imzaları ve kurallar buraya yazılacak.
+# Description user rules
 
 rules:
 
